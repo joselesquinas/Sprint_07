@@ -1,0 +1,63 @@
+<p>home works!</p>
+
+<div class="container row d-flex">
+
+ <!-- Calculo del presupuesto -->
+  <div class="left col-sm-6">
+
+    <h2>¿Qué quieres hacer?</h2>
+    <br />
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckWeb"
+        (change)="onCheckboxChange( $event )" (click)="mostrarPanell()">
+      <label class="form-check-label" for="flexCheckWeb">
+        Una página web ({{labelWeb}} €)
+      </label>
+    </div>
+    <div *ngIf=" irPanell ">
+      <app-panell></app-panell>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckSeo"
+        (change)="onCheckboxChange( $event )">
+      <label class="form-check-label" for="flexCheckSeo">
+        Una consultoria SEO ({{labelSeo}} €)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckAds"
+        (change)="onCheckboxChange( $event )">
+      <label class="form-check-label" for="flexCheckAds">
+        Una campanya de Google Ads ({{labelAds}} €)
+      </label>
+    </div>
+    <br />
+
+    <div>
+      <p> <span>Preu: {{spantotal}} €</span> </p>
+
+    </div>
+    <br />
+    <hr><br />
+
+    <div class="mb-3 ">
+      <label class="col-sm-4 col-form-label">Nombre del presupuesto:</label>
+      <div class="col-sm-8 d-flex">
+        <input type="text" class="form-control " placeholder="">
+      </div>
+
+      <div>
+        <label class="col-sm-4 col-form-label">Cliente:</label>
+        <div class="col-sm-8 d-flex">
+          <input type="text" class="form-control " placeholder="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Listado del presupuesto -->
+  <div class="right col-sm-6">
+    <app-pressupost-list> </app-pressupost-list>
+  </div>
+</div>
