@@ -20,7 +20,6 @@ export class PanellComponent implements OnInit {
    acumularIdi( valor: number ) {
       this.numIdi += valor;
    }
-
    
   constructor(  private presupuestoService: PresupuestoService)  { }
 

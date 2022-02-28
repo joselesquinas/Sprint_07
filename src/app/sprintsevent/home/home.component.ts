@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
    labelWeb: string = (this.presupuestoService.plantillaPpto.web).toString();
    labelSeo: string = (this.presupuestoService.plantillaPpto.seo).toString();
    labelAds: string = (this.presupuestoService.plantillaPpto.googleAds).toString();
-   spantotal: string = (this.presupuestoService.plantillaPpto.total).toString();
-
+   spanTotal: string ='0';
+   
    // mostrar template panell
    irPanell: boolean = false;
    mostrarPanell() {
@@ -29,8 +29,8 @@ export class HomeComponent implements OnInit {
       }
       // llamada a función presupuesto
       this.presupuestoService.calculoPpto(value);
+      this.spanTotal = (this.presupuestoService.plantillaPpto.total).toString();
    }
-
 
    constructor(private presupuestoService: PresupuestoService) { }
 

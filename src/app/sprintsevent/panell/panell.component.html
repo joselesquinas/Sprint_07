@@ -4,7 +4,7 @@
     <label class="col-sm-4 col-form-label">Número de páginas:</label>
     <div class="col-sm-8  d-flex">
       <button type="button" class="btn btnCalculo" (click)="acumularPag(+1)"><strong>+</strong></button>
-      <input type="text" class="form-control " placeholder="" value="{{ numPag }}  ">
+      <input id="inpPag"  type="text" class="form-control " placeholder="" value="{{ numPag }}  ">
       <button type="button" class="btn btnCalculo " (click)="acumularPag(-1)" ><strong>-</strong></button>
     </div>
 
@@ -15,7 +15,7 @@
     <label class="col-sm-4 col-form-label">Número de idiomas:</label>
     <div class="col-sm-8 d-flex">
       <button type="button" class=" btn btnCalculo" (click)="acumularIdi(+1)"><strong>+</strong></button>
-      <input type="text" class="form-control " placeholder="" value="{{ numIdi }}" >
+      <input id="inpIdioma" type="text" class="form-control " placeholder="" value="{{ numIdi }}" >
       <button type="button" class="btn btnCalculo " (click)="acumularIdi(-1)" ><strong>-</strong></button>
     </div>
   </div>
