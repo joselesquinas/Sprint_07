@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
    // mostrar template panell
    irPanell: boolean = false;
    mostrarPanell() {
-      this.irPanell
+      this.irPanell;
    }
 
    onCheckboxChange(e: Event): void {
