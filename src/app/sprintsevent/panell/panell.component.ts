@@ -1,4 +1,5 @@
-import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
+import { Component} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { PresupuestoService } from '../services/presupuesto.service';
 
@@ -9,29 +10,15 @@ import { PresupuestoService } from '../services/presupuesto.service';
   styleUrls: ['./panell.component.sass']
 })
 
-export class PanellComponent implements OnInit {
+export class PanellComponent {
 
-   numPag: number = 0;
-   numIdi: number = 0;
+   miFormulario: FormGroup = this.fb.group({
+      paginas: [0 , Validators.required ],
+      idiomas: [0 , Validators.required ],
+   })
 
-   @ViewChild('txtPagina') txtPagina!: ElementRef<HTMLInputElement>;
-   @ViewChild('txtImage')  txtImage! : ElementRef<HTMLInputElement>;
-
-   constructor(  private presupuestoService: PresupuestoService)  { }
-
-   acumularPag( valor: number ) {
-      this.numPag = Number(this.txtPagina.nativeElement.value);
-      (this.numPag >= 0  ) ?  this.numPag += valor : this.numPag = 0 ;
-   }
-
-   acumularIdi( valor: number ) {
-      this.numIdi = Number(this.txtImage.nativeElement.value);
-      ( this.numIdi >= 0  ) ?  this.numIdi += valor : this.numIdi = 0 ;
-   }
-   
-
-
-  ngOnInit(): void {
-  }
+   constructor(
+      private presupuestoService: PresupuestoService, 
+      private fb: FormBuilder ) {}
 
 }

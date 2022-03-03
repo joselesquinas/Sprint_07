@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 import { PanellComponent } from './panell/panell.component';
@@ -14,11 +14,11 @@ import { PresupuestoService } from './services/presupuesto.service';
    PressupostListComponent
   ],
   exports: [
-   HomeComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [
    PresupuestoService

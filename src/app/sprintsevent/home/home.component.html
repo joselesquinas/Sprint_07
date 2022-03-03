@@ -1,63 +1,117 @@
-<p>home works!</p>
 
-<div class="container row d-flex">
+<div class="row">
+   <div class="col">
 
- <!-- Calculo del presupuesto -->
-  <div class="left col-sm-6">
+      <form autocomplete="off" [formGroup]="miFormulario">
 
-    <h2>¿Qué quieres hacer?</h2>
-    <br />
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckWeb"
-        (change)="onCheckboxChange( $event )" (click)="mostrarPanell()">
-      <label class="form-check-label" for="flexCheckWeb">
-        Una página web ({{labelWeb}} €)
-      </label>
-    </div>
-    <div *ngIf=" irPanell ">
-      <app-panell></app-panell>
-    </div>
 
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckSeo"
-        (change)="onCheckboxChange( $event )">
-      <label class="form-check-label" for="flexCheckSeo">
-        Una consultoria SEO ({{labelSeo}} €)
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckAds"
-        (change)="onCheckboxChange( $event )">
-      <label class="form-check-label" for="flexCheckAds">
-        Una campanya de Google Ads ({{labelAds}} €)
-      </label>
-    </div>
-    <br />
+         <div class="container row d-flex">
 
-    <div>
-      <p> <span>Preu: {{spanTotal}} €</span> </p>
+            <!-- Calculo del presupuesto -->
+            <div class="left col-sm-6">
+          
+              <h2>¿Qué quieres hacer?</h2>
+              <br />
+            <!--   checkbox WWEB     -->
+              <div class="form-check">
+                <input class="form-check-input" 
+                     type="checkbox" 
+                     id="flexCheckWeb" 
+                     formControlName="web" 
+                     (change)="onCheckboxChange( $event )"
+                     (click)="mostrarPanell()">
+                <label class="form-check-label" for="flexCheckWeb">
+                  Una página web ({{labelWeb}} €)
+                </label>
+              </div>
+              <div *ngIf=" irPanell ">
+                <app-panell></app-panell>
+              </div>
+           <!--   checkbox SEO     -->
+              <div class="form-check">
+                <input class="form-check-input" 
+                type="checkbox" 
+                id="flexCheckSeo" 
+                formControlName="seo" 
+                (change)="onCheckboxChange( $event )">
+                <label class="form-check-label" for="flexCheckSeo">
+                  Una consultoria SEO ({{labelSeo}} €)
+                </label>
+              </div>
+            <!--   checkbox Google Ads    -->
+              <div class="form-check">
+                <input class="form-check-input" 
+                type="checkbox"
+                id="flexCheckAds" 
+                formControlName="ads" 
+                (change)="onCheckboxChange( $event )">
+                <label class="form-check-label" for="flexCheckAds">
+                  Una campanya de Google Ads ({{labelAds}} €)
+                </label>
+              </div>
+              <br />
+          <!--   Precio TOTAL    -->
+              <div>
+                <p> <span>Preu: {{spanTotal}} €</span> </p>
+          
+              </div>
+          
+              <br />
+              <hr><br />
+          
+            <!-- datos del Presupuesto -->
 
-    </div>
-    <br />
-    <hr><br />
+             <div class="mb-3 ">
+                <label class="col-sm-4 col-form-label">Presupuesto:</label>
 
-    <div class="mb-3 ">
-      <label class="col-sm-4 col-form-label">Nombre del presupuesto:</label>
-      <div class="col-sm-8 d-flex">
-        <input type="text" class="form-control " placeholder="">
-      </div>
+                <div class="col-sm-8 d-flex">
+                  <input type="text" 
+                        class="form-control " 
+                        formControlName="nomPpto">
+                </div>
+                <span class="form-text text-danger"
+                        *ngIf="campoEsValido('nomPpto')" >
+                       Debe de ser de 8 letras
+                </span>
+                <br /> 
+                <div>
+                  <label class="col-sm-4 col-form-label">Cliente:</label>
+                  <div class="col-sm-8 d-flex">
+                    <input type="text" 
+                      class="form-control " 
+                      formControlName="nomCliente">
+                  </div>
+                  <span class="form-text text-danger"
+                        *ngIf="campoEsValido('nomCliente')" >
+                     Falta nombre del Cliente
+                   </span>
+                </div>
 
-      <div>
-        <label class="col-sm-4 col-form-label">Cliente:</label>
-        <div class="col-sm-8 d-flex">
-          <input type="text" class="form-control " placeholder="">
-        </div>
-      </div>
-    </div>
+                <br />
+                <div class="row">
+                  <div class="col">
+                    <button type="submit" class="btn btn-primary float-end">
+                      Guardar
+                    </button>
+                  </div>
+                </div>
+                
+               <hr>
+              </div>
+            </div>
+            <!-- datos del Presupuesto -->      
+          
+          
+          
+          
+            <!-- Listado del presupuesto -->
+            <div class="right col-sm-6">
+              <app-pressupost-list> </app-pressupost-list>
+            </div>
+          </div>
+          
 
-  </div>
-  <!-- Listado del presupuesto -->
-  <div class="right col-sm-6">
-    <app-pressupost-list> </app-pressupost-list>
-  </div>
+     </form>
+
+   </div>
 </div>

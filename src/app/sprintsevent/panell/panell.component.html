@@ -1,36 +1,53 @@
-<div class="container border border-dark border-3">
 
-   <div class="mb-3 row">
-     <label class="col-sm-4 col-form-label">Número de páginas:</label>
-     <div class="col-sm-8  d-flex">
-       <button type="button" class="btn btnCalculo" (click)="acumularPag(+1)"><strong>+</strong></button>
-       <input id="inpPag"  
-         type="text" 
-         class="form-control " 
-         placeholder="" 
-         value="{{ numPag }}"
-         #txtPagina
-         >
-       <button type="button" class="btn btnCalculo " (click)="acumularPag(-1)" ><strong>-</strong></button>
-     </div>
- 
+<div class="row">
+   <div class="col">
+
+      <form autocomplete="off" [formGroup]="miFormulario">
+
+         <div class="container border border-dark border-3 divCuadro">
+
+            <!-- Campo de Página-->
+            <div class="mb-3 row divRow">
+              <label class="col-sm-4 col-form-label">Páginas:</label>
+              <div class="col-sm-8  d-flex">
+                <button type="button" class="btn btnCalculo">
+                  <strong>+</strong>
+                </button>
+          
+                <input id="inpPag" 
+                   type="text" 
+                   class="form-control " 
+                   formControlName="paginas" 
+                   placeholder="">
+          
+                <button type="button" class="btn btnCalculo ">
+                  <strong>-</strong>
+                </button>
+              </div>
+            </div>
+          
+            <!-- Campo de Idiomas-->
+            <div class="mb-3 row divRow">
+              <label class="col-sm-4 col-form-label">Idiomas:</label>
+              <div class="col-sm-8  d-flex">
+                <button type="button" class="btn btnCalculo">
+                  <strong>+</strong>
+                </button>
+          
+                <input id="inpIdi" 
+                   type="text" 
+                   class="form-control " 
+                   formControlName="idiomas" 
+                   placeholder="">
+                
+                <button type="button" class="btn btnCalculo ">
+                  <strong>-</strong>
+                </button>
+              </div>
+            </div>
+               
+          </div>
+          
+      </form>
    </div>
- 
- 
-   <div class="mb-3 row">
-     <label class="col-sm-4 col-form-label">Número de idiomas:</label>
-     <div class="col-sm-8 d-flex">
-       <button type="button" class=" btn btnCalculo" (click)="acumularIdi(+1)"><strong>+</strong></button>
-       <input id="inpIdioma" 
-         type="text" 
-         class="form-control " 
-         placeholder="" 
-         value="{{ numIdi }}"
-         #txtImage 
-         >
-       <button type="button" class="btn btnCalculo " (click)="acumularIdi(-1)" ><strong>-</strong></button>
-     </div>
-   </div>
- 
- 
- </div>
+</div>
