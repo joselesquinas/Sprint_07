@@ -10,7 +10,10 @@
             <div class="mb-3 row divRow">
               <label class="col-sm-4 col-form-label">Páginas:</label>
               <div class="col-sm-8  d-flex">
-                <button type="button" class="btn btnCalculo">
+                <button type="button" 
+                        class="btn btnCalculo"
+                        (click)="modificar(+1,'paginas');
+                                  inpTextChange( $event )" >
                   <strong>+</strong>
                 </button>
           
@@ -18,9 +21,13 @@
                    type="text" 
                    class="form-control " 
                    formControlName="paginas" 
-                   placeholder="">
-          
-                <button type="button" class="btn btnCalculo ">
+                   placeholder="" 
+                   (change)="inpTextChange( $event )">
+     
+                <button type="button" 
+                        class="btn btnCalculo "
+                        (click)="modificar(-1,'paginas');
+                                  inpTextChange( $event )" >
                   <strong>-</strong>
                 </button>
               </div>
@@ -30,7 +37,10 @@
             <div class="mb-3 row divRow">
               <label class="col-sm-4 col-form-label">Idiomas:</label>
               <div class="col-sm-8  d-flex">
-                <button type="button" class="btn btnCalculo">
+                <button type="button" 
+                        class="btn btnCalculo"
+                        (click)="modificar(+1, 'idiomas');
+                                 inpTextChange( $event )" >
                   <strong>+</strong>
                 </button>
           
@@ -38,9 +48,13 @@
                    type="text" 
                    class="form-control " 
                    formControlName="idiomas" 
-                   placeholder="">
+                   placeholder="" 
+                   (change)="inpTextChange( $event )">
                 
-                <button type="button" class="btn btnCalculo ">
+                <button type="button" 
+                        class="btn btnCalculo "
+                        (click)="modificar(-1, 'idiomas');
+                                 inpTextChange( $event )" >
                   <strong>-</strong>
                 </button>
               </div>

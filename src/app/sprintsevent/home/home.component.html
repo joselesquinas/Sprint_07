@@ -1,10 +1,7 @@
 
 <div class="row">
    <div class="col">
-
       <form autocomplete="off" [formGroup]="miFormulario">
-
-
          <div class="container row d-flex">
 
             <!-- Calculo del presupuesto -->
@@ -15,47 +12,62 @@
             <!--   checkbox WWEB     -->
               <div class="form-check">
                 <input class="form-check-input" 
-                     type="checkbox" 
-                     id="flexCheckWeb" 
-                     formControlName="web" 
-                     (change)="onCheckboxChange( $event )"
-                     (click)="mostrarPanell()">
+                        type="checkbox" 
+                        formControlName="web" 
+                        id="flexCheckWeb" 
+                        (change)="onCheckboxChange( $event )"
+                        (click)="mostrarPanell()">
                 <label class="form-check-label" for="flexCheckWeb">
-                  Una página web ({{labelWeb}} €)
+                  Una página web (500 €)
                 </label>
               </div>
               <div *ngIf=" irPanell ">
                 <app-panell></app-panell>
               </div>
-           <!--   checkbox SEO     -->
+
+              <!--   checkbox SEO     -->
               <div class="form-check">
-                <input class="form-check-input" 
-                type="checkbox" 
-                id="flexCheckSeo" 
-                formControlName="seo" 
-                (change)="onCheckboxChange( $event )">
-                <label class="form-check-label" for="flexCheckSeo">
-                  Una consultoria SEO ({{labelSeo}} €)
-                </label>
+                  <input class="form-check-input" 
+                        type="checkbox" 
+                        formControlName="seo" 
+                        id="flexCheckSeo" 
+                        (change)="onCheckboxChange( $event )">
+                   <label class="form-check-label" for="flexCheckSeo">
+                      Una consultoria SEO (300 €)
+                   </label>
               </div>
+
             <!--   checkbox Google Ads    -->
               <div class="form-check">
-                <input class="form-check-input" 
-                type="checkbox"
-                id="flexCheckAds" 
-                formControlName="ads" 
-                (change)="onCheckboxChange( $event )">
-                <label class="form-check-label" for="flexCheckAds">
-                  Una campanya de Google Ads ({{labelAds}} €)
-                </label>
+                  <input class="form-check-input" 
+                           type="checkbox"
+                           formControlName="ads" 
+                           id="flexCheckAds" 
+                           (change)="onCheckboxChange( $event )">
+                  <label class="form-check-label" for="flexCheckAds">
+                     Una campanya de Google Ads (200 €)
+                  </label>
               </div>
               <br />
+              <div>
+               <span class="form-text text-danger"
+                     *ngIf="campoEsValido('nomPpto')" >
+                     Como mínimo ha de seleccionar una opción
+               </span>
+              </div>
           <!--   Precio TOTAL    -->
               <div>
-                <p> <span>Preu: {{spanTotal}} €</span> </p>
-          
+                <p> <span> <strong>  Precio: {{spanTotal}} €  </strong></span> </p>
               </div>
-          
+              <div class="row">
+               <div class="col">
+                 <button class="btn btn-primary float-end" 
+                         (click)="recivirCalculo()">
+                   Calcular
+                 </button>
+               </div>
+             </div>
+              <br />
               <br />
               <hr><br />
           

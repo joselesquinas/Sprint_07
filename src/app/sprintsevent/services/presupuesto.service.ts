@@ -9,62 +9,49 @@ import { Budget } from '../interfaces/budget';
 
 export class PresupuestoService {
 
-   precioParcial: number = 0;
-   precioTotal  : number = 0;
+   precioParcial   : number = 0;
+   precioTotal     : number = 0;
    totalComplemento: number = 0;
 
    plantillaPpto: Budget = {
-      web: 500,
-      paginas: 1,
-      idiomas: 1,
+      web        : 0,
+      paginas    : 1,
+      idiomas    : 1,
       complemento: 30,
-      seo: 300,
-      googleAds: 200,
-      total: 0,
+      seo        : 0,
+      googleAds  : 0,
+      total      : 0,
    };
 
    // totalPpto: Budget[] = []
+   arrayPpto = Object.values(this.plantillaPpto);
 
    constructor() { };
 
-   calculoPpto(evento: Event) {
-      const value:any  = evento;
 
-      switch (value.id) {
-         case "flexCheckWeb": {
-            (value.checked) ? (this.precioParcial += this.plantillaPpto.web)
-               : (this.precioParcial -= this.plantillaPpto.web);
-            this.modificarPpto(this.precioParcial, value.checked);
-            break;
-         }
-         case "flexCheckSeo": {
-            (value.checked) ? (this.precioParcial += this.plantillaPpto.seo)
-               : (this.precioParcial -= this.plantillaPpto.seo);
-            this.modificarPpto(this.precioParcial);
-            break;
-         }
-         case "flexCheckAds": {
-            (value.checked) ? (this.precioParcial += this.plantillaPpto.googleAds)
-               : (this.precioParcial -= this.plantillaPpto.googleAds);
-            this.modificarPpto(this.precioParcial);
-            break;
-         }
-      };
-
-   }
-
-   modificarPpto(parcial: number, web?:boolean|undefined): void {
-      this.precioTotal = parcial;
+   calculoPpto( evento: Event ) {
+      const value = evento.currentTarget as HTMLInputElement;
+      console.log(value.id);
+      this.precioParcial = 0;
+      this.precioTotal = 0;
       this.totalComplemento = 0;
-      (web) ? this.totalComplemento = this.plantillaPpto.paginas 
-                                       * this.plantillaPpto.idiomas 
-                                       * this.plantillaPpto.complemento
-                                       : -(this.plantillaPpto.paginas 
-                                          * this.plantillaPpto.idiomas 
-                                          * this.plantillaPpto.complemento);
+      this.arrayPpto[6] = 0;
 
-      this.plantillaPpto.total = this.precioTotal + this.totalComplemento;
+      this.totalComplemento = Number(this.arrayPpto[1])
+                              * Number(this.arrayPpto[2])
+                              * Number(this.arrayPpto[3]);
+
+      if ( Number(this.arrayPpto[0]) !== 0 ) { 
+         this.precioParcial =  Number(this.arrayPpto[0]) + this.totalComplemento ;  
+      } 
+      else { this.precioParcial = 0 ;}
+
+      this.precioTotal =  this.precioParcial + Number(this.arrayPpto[4]) + Number(this.arrayPpto[5]);
+
+      this.arrayPpto[6] = this.precioTotal; 
+
+    console.log( this.arrayPpto );
+
    }
-
 
 }
