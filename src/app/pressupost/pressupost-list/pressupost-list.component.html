@@ -1,0 +1,44 @@
+<!-- 
+
+<div class="row">
+   <div class="col">
+      <form autocomplete="off" [formGroup] = "miFormulario">
+         <div class="container row d-flex">
+
+
+         </div>
+      </form>
+    </div>
+  </div> 
+
+-->
+ <div class="row">
+   <div class="col">
+     <!--     <form autocomplete="off" [formGroup]="miFormulario"> -->
+     <form [formGroup]="myForm" (onSubmit)="doSomething()">
+       <div class="container row d-flex">
+          <h2>¿Qué quieres hacer?</h2>
+          <div class="col">
+             <button type="submit" 
+                     class="btn btn-primary "
+                        >
+                ordenar alfabèticament
+             </button>
+           </div>
+           <div class="col">
+             <button type="submit" class="btn btn-primary ">
+                ordenar per data
+             </button>
+           </div>
+           <div class="col">
+             <button type="submit" 
+                     class="btn btn-primary ">
+                reinicialitzar  ordre
+             </button>
+           </div>
+ 
+       </div>
+     </form>
+   </div>
+ </div>
+ 

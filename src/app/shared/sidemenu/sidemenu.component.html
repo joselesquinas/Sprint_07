@@ -1,0 +1,13 @@
+<h2>Presupuestos</h2>
+<hr>
+
+<ul class="llist-group" >
+
+   <li   *ngFor="let item of templateMenu"
+         class="list-group-item"
+         [routerLink] = "[ item.ruta ]"
+         routerLinkActive="active" >
+         {{ item.texto }}
+   </li>
+
+</ul>

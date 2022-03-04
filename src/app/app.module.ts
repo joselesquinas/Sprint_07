@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BudgetModule } from './sprintsevent/budget.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { BudgetModule } from './sprintsevent/budget.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BudgetModule
+    SharedModule
 
   ],
   providers: [],
