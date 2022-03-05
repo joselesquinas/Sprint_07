@@ -1,5 +1,4 @@
-
-// presupuesto economico, para importe total
+// presupuesto calculo economico, para importe total
 export interface Budget {
    web: number;
    paginas: number;
@@ -10,12 +9,20 @@ export interface Budget {
    total: number;
 }
 
-// presupuesto detallado para el cliente
+// presupuesto detallado para albaran
 export interface presupuesto {
-   idPresupuesto: string;
-   nombreCli: string;
-   total: number;
-   fecha: Date;
+   idPpto: string;
+   nomCli: string;
+   totalPpto: number;
+   fecha: string;
 }
 
-//
+
+
+
+
+
+
+
+
+

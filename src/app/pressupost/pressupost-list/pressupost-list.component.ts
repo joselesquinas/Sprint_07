@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { PresupuestoService } from '../services/presupuesto.service';
@@ -12,15 +12,10 @@ import { PresupuestoService } from '../services/presupuesto.service';
 
 export class PressupostListComponent implements OnInit {
 
-   //miFormulario: FormGroup = this.fb.group({
-   //
-   // })
-
-    myForm: FormGroup = this.fb.group({
-
-   })
+   myForm: FormGroup = this.fb.group({ })
 
    doSomething() {}
+
 
   constructor(   private presupuestoService: PresupuestoService,
                   private fb: FormBuilder) { }

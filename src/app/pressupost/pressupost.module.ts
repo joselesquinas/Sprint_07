@@ -8,8 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { PanellComponent } from './panell/panell.component';
 import { PressupostListComponent } from './pressupost-list/pressupost-list.component';
 import { PresupuestoService } from './services/presupuesto.service';
-
-
+import { DbpttoService } from './services/dbptto.service';
 
 
 @NgModule({
@@ -29,7 +28,8 @@ import { PresupuestoService } from './services/presupuesto.service';
     ReactiveFormsModule
   ],
   providers: [
-   PresupuestoService
+   PresupuestoService,
+   DbpttoService
   ]
 })
 export class PressupostModule { }

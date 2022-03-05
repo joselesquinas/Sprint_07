@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PresupuestoService } from '../services/presupuesto.service';
+import { DbpttoService } from '../services/dbptto.service';
+import { presupuesto } from '../interfaces/budget';
 
 
 @Component({
@@ -16,14 +18,21 @@ export class HomeComponent {
       web: [false],
       seo: [false],
       ads: [false],
-      nomPpto: ['', [Validators.required, Validators.minLength(8)]],
-      nomCliente: ['', Validators.required],
+      nomPpto: [ , [Validators.required, Validators.minLength(8)]],
+      nomCliente: [ , Validators.required],
    })
 
-   constructor(
-      private presupuestoService: PresupuestoService,
-      private fb: FormBuilder) { }
 
+   constructor (
+      private presupuestoService: PresupuestoService,
+      private fb: FormBuilder,
+      private dbpttoService: DbpttoService ) { }
+
+//==========================================================
+   
+
+
+// =========================================================
 
    spanTotal: string = '0';
 
@@ -78,5 +87,46 @@ export class HomeComponent {
       return this.miFormulario.controls[campo].errors
          && this.miFormulario.controls[campo].touched;
    }
+
+   guardar() {
+      if ( this.miFormulario.invalid) { 
+         this.miFormulario.markAllAsTouched();
+         return;
+      };
+
+      // albaran
+
+      //   this.dbpttoservice.presupuestos.push ( 
+      //      {
+      //      idPpto: this.miFormulario.controls['nomPpto'].value,
+      //      nomCli: this.miFormulario.controls['nomCliente'].value,
+      //      totalPpto: this.presupuestoService.arrayPpto[6],
+      //      fecha: '02/02/2022',
+      //      } );
+
+      let id: string = '';
+      let pre: presupuesto [] = [
+            {
+            idPpto: this.miFormulario.controls['nomPpto'].value,
+            nomCli: this.miFormulario.controls['nomCliente'].value,
+            totalPpto: this.presupuestoService.arrayPpto[6],
+            fecha: '02/02/2022',   
+         }]
+      
+
+      // ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+      console.log(this.miFormulario.value);
+      // localStorage.setItem('tutorial', 'Como utilizar el LocalStorage en Angular 2222');
+
+      this.dbpttoService.grabar_localstorage(  id , pre );
+
+      this.dbpttoService.obtener_localstorage();
+
+      this.miFormulario.reset();
+      this.spanTotal = '0';
+
+   }
+
+
 
 }
