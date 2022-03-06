@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PresupuestoService } from '../services/presupuesto.service';
 import { DbpttoService } from '../services/dbptto.service';
-import { presupuesto } from '../interfaces/budget';
+import { Presupuesto } from '../interfaces/budget';
+
 
 
 @Component({
@@ -27,12 +28,6 @@ export class HomeComponent {
       private presupuestoService: PresupuestoService,
       private fb: FormBuilder,
       private dbpttoService: DbpttoService ) { }
-
-//==========================================================
-   
-
-
-// =========================================================
 
    spanTotal: string = '0';
 
@@ -79,6 +74,7 @@ export class HomeComponent {
       // llamada a función presupuesto
       this.presupuestoService.calculoPpto(e);
    }
+
    recivirCalculo() {
       this.spanTotal = ( this.presupuestoService.arrayPpto[6]).toString();
    }
@@ -94,36 +90,21 @@ export class HomeComponent {
          return;
       };
 
-      // albaran
+      let f = new Date();
+      let date:string =(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
-      //   this.dbpttoservice.presupuestos.push ( 
-      //      {
-      //      idPpto: this.miFormulario.controls['nomPpto'].value,
-      //      nomCli: this.miFormulario.controls['nomCliente'].value,
-      //      totalPpto: this.presupuestoService.arrayPpto[6],
-      //      fecha: '02/02/2022',
-      //      } );
-
-      let id: string = '';
-      let pre: presupuesto [] = [
-            {
+      let pTto = {
             idPpto: this.miFormulario.controls['nomPpto'].value,
             nomCli: this.miFormulario.controls['nomCliente'].value,
             totalPpto: this.presupuestoService.arrayPpto[6],
-            fecha: '02/02/2022',   
-         }]
-      
+            fecha: date,   
+         }
 
-      // ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
-      console.log(this.miFormulario.value);
-      // localStorage.setItem('tutorial', 'Como utilizar el LocalStorage en Angular 2222');
-
-      this.dbpttoService.grabar_localstorage(  id , pre );
-
-      this.dbpttoService.obtener_localstorage();
+      this.dbpttoService.grabar_LocalStorage( 'Presupuestos', pTto );
 
       this.miFormulario.reset();
       this.spanTotal = '0';
+      return false;
 
    }
 

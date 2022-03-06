@@ -10,7 +10,7 @@ export interface Budget {
 }
 
 // presupuesto detallado para albaran
-export interface presupuesto {
+export interface Presupuesto {
    idPpto: string;
    nomCli: string;
    totalPpto: number;

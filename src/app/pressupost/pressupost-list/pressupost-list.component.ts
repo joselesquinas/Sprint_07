@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { PresupuestoService } from '../services/presupuesto.service';
+import { DbpttoService } from '../services/dbptto.service';
+
 
 
 @Component({
@@ -17,11 +19,16 @@ export class PressupostListComponent implements OnInit {
    doSomething() {}
 
 
-  constructor(   private presupuestoService: PresupuestoService,
+  constructor(    private presupuestoService: PresupuestoService,
+                  private dbpttoService: DbpttoService,
                   private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+ getPresupuestos (){
+     this.dbpttoService.obtener_LocalStorage();
+
+ }
 
 }
