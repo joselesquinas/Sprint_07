@@ -1,7 +1,10 @@
-import { Component} from '@angular/core';
+import { Component, NgModule} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
 import { PresupuestoService } from '../services/presupuesto.service';
+
 
 @Component({
   selector: 'app-panell',
@@ -18,8 +21,9 @@ export class PanellComponent {
 
    btnValor: number = 0;
 
-   constructor( private presupuestoService: PresupuestoService, 
-                  private fb: FormBuilder ) {}
+   constructor( private modal: NgbModal,
+                private presupuestoService: PresupuestoService, 
+                private fb: FormBuilder ) {}
 
    modificar( valor: number, origen: string ) {
       this.btnValor = Number(this.miFormulario.controls[origen].value);
@@ -34,5 +38,20 @@ export class PanellComponent {
    this.presupuestoService.arrayPpto[2] = Number(this.miFormulario.controls['idiomas'].value);   
    this.presupuestoService.calculoPpto( e );
    }
+
+
+   //  openSM(contenido) {
+   //     this.modal.open(contenido,{size:'sm'});
+   //  }
+   //  openLG(contenido) {
+   //     this.modal.open(contenido,{size:'lg'});
+   //  }
+   //  openXL(contenido) {
+   //     this.modal.open(contenido,{size:'xl'});
+   //  }
+   //  openCentrado(contenido) {
+   //     this.modal.open(contenido,{centered:true});
+   //  }
+
 
 }

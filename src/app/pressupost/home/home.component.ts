@@ -39,7 +39,7 @@ export class HomeComponent {
 
    onCheckboxChange(e: Event): void {
       const value = e.currentTarget as HTMLInputElement;
-
+      this.spanTotal = '0';
       if (value.id === "flexCheckWeb") {
          // mostrar template panell
          this.irPanell = value.checked;
@@ -76,7 +76,9 @@ export class HomeComponent {
    }
 
    recivirCalculo() {
+
       this.spanTotal = ( this.presupuestoService.arrayPpto[6]).toString();
+
    }
 
    campoEsValido(campo: string) {
@@ -88,7 +90,11 @@ export class HomeComponent {
       if ( this.miFormulario.invalid) { 
          this.miFormulario.markAllAsTouched();
          return;
-      };
+      }
+   
+      if (this.presupuestoService.arrayPpto[6] == '0'){
+         alert('Como mínimo ha de seleccionar una opción Web');
+      }
 
       let f = new Date();
       let date:string =(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
@@ -96,7 +102,7 @@ export class HomeComponent {
       let pTto = {
             idPpto: this.miFormulario.controls['nomPpto'].value,
             nomCli: this.miFormulario.controls['nomCliente'].value,
-            totalPpto: this.presupuestoService.arrayPpto[6].tostri,
+            totalPpto: this.presupuestoService.arrayPpto[6].tostring,
             fecha: date,   
          }
 
@@ -107,7 +113,6 @@ export class HomeComponent {
       return false;
 
    }
-
 
 
 }
