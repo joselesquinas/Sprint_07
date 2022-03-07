@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PresupuestoService } from '../services/presupuesto.service';
 import { DbpttoService } from '../services/dbptto.service';
-import { Presupuesto } from '../interfaces/budget';
-
 
 
 @Component({
@@ -55,18 +53,23 @@ export class HomeComponent {
                   this.presupuestoService.arrayPpto[2] = 1;
                   this.presupuestoService.arrayPpto[6] = 0; 
             }
+            
             break;
          }
          case "flexCheckSeo": {
             if (value.checked) {
                this.presupuestoService.arrayPpto[4] = 300;
+
             }  else { this.presupuestoService.arrayPpto[4] = 0; }
+           
             break;
          }
          case "flexCheckAds": {
             if (value.checked) {
                this.presupuestoService.arrayPpto[5] = 200;
+
             }  else { this.presupuestoService.arrayPpto[5] = 0; }
+         
             break;
          }
       };
@@ -75,10 +78,11 @@ export class HomeComponent {
       this.presupuestoService.calculoPpto(e);
    }
 
-   recivirCalculo() {
-
+   recibirCalculo() {
       this.spanTotal = ( this.presupuestoService.arrayPpto[6]).toString();
-
+   }
+   modificarSpanTotal() {
+      this.spanTotal = ( this.presupuestoService.arrayPpto[6]).toString();
    }
 
    campoEsValido(campo: string) {
@@ -114,5 +118,6 @@ export class HomeComponent {
 
    }
 
+ 
 
 }

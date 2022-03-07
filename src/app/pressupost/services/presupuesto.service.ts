@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Budget } from '../interfaces/budget';
 
 
+
 @Injectable({
    providedIn: 'root'
 })
@@ -50,7 +51,8 @@ export class PresupuestoService {
 
       this.arrayPpto[6] = this.precioTotal; 
 
-    console.log( this.arrayPpto );
+      console.log( this.arrayPpto );
+
 
    }
 
