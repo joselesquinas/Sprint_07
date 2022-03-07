@@ -13,7 +13,7 @@ export interface Budget {
 export interface Presupuesto {
    idPpto: string;
    nomCli: string;
-   totalPpto: number;
+   totalPpto: string;
    fecha: string;
 }
 

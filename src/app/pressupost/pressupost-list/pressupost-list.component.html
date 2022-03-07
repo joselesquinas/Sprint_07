@@ -12,34 +12,49 @@
   </div> 
 
 -->
- <div class="row">
-   <div class="col">
-     <!--     <form autocomplete="off" [formGroup]="miFormulario"> -->
-     <form [formGroup]="myForm" (onSubmit)="doSomething()">
-       <div class="container row d-flex">
-          <h2>¿Qué quieres hacer?</h2>
+<div class="container">
+
+
+  <div class="row">
+    <div class="col">
+      <!--     <form autocomplete="off" [formGroup]="miFormulario"> -->
+      <form [formGroup]="myForm">
+        <div class="container row d-flex">
+          <h3>¿Ordenar presupuestos por:</h3>
           <div class="col">
-             <button type="submit" 
-                     class="btn btn-primary "
-                        >
-                ordenar alfabèticament
-             </button>
-           </div>
-           <div class="col">
-             <button type="submit" class="btn btn-primary ">
-                ordenar per data
-             </button>
-           </div>
-           <div class="col">
-             <button type="submit" 
-                     class="btn btn-primary " 
-                     (click)="getPresupuestos()">
-                reinicialitzar  ordre
-             </button>
-           </div>
- 
-       </div>
-     </form>
-   </div>
- </div>
- 
+            <button type="submit" class="btn btn-primary ">
+              Nombre
+            </button>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary ">
+              Fechas
+            </button>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary " (click)="getPresupuestos()">
+              Referencia
+            </button>
+          </div>
+
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+
+  <!--    listado de presupuestos -->
+      <div class="row">
+         <div class="col">
+         <p>Listado de presupuestos:</p>
+          <ul>
+               <li *ngfor="let presupuesto of presupuestos; let i = index"> 
+                  {{i +1}} - {{ presupuesto }}
+               </li>
+          </ul>
+
+        </div>
+      </div>
+
+</div>

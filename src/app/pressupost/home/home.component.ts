@@ -96,7 +96,7 @@ export class HomeComponent {
       let pTto = {
             idPpto: this.miFormulario.controls['nomPpto'].value,
             nomCli: this.miFormulario.controls['nomCliente'].value,
-            totalPpto: this.presupuestoService.arrayPpto[6],
+            totalPpto: this.presupuestoService.arrayPpto[6].tostri,
             fecha: date,   
          }
 
