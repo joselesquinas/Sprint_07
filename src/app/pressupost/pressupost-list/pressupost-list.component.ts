@@ -63,8 +63,5 @@ export class PressupostListComponent implements OnInit {
       console.log(this.presupuestos);
        
    }
-
- 
-
  
 }

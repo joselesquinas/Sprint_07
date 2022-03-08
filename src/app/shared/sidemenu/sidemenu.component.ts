@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DbpttoService } from '../../pressupost/services/dbptto.service';
 
 interface MenuItem {
    texto: string;
@@ -34,6 +35,7 @@ export class SidemenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

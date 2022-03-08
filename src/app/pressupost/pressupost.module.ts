@@ -32,4 +32,6 @@ import { DbpttoService } from './services/dbptto.service';
    DbpttoService
   ]
 })
-export class PressupostModule { }
+export class PressupostModule {
+   
+}

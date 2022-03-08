@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PresupuestoService } from '../services/presupuesto.service';
 import { DbpttoService } from '../services/dbptto.service';
 
-
 @Component({
    selector: 'app-home',
    templateUrl: './home.component.html',
@@ -21,6 +20,7 @@ export class HomeComponent implements OnInit {
       nomCliente: [ , Validators.required],
    })
 
+   spanTotal: string = '0';
    //data: string = '';
 
    constructor (
@@ -30,16 +30,15 @@ export class HomeComponent implements OnInit {
    
    ngOnInit(): void {
       this.presupuestoService.disparadorDeFavoritos.subscribe( data => {
-         console.log(data);
          if ( data ) { 
             this.modificarSpanTotal();
          }
-      })
+      });
+      
+      this.dbpttoService.inputPttoEjemplo();
    }
 
-   spanTotal: string = '0';
-
-   // mostrar template panell
+    // mostrar template panell
    irPanell: boolean = false;
    mostrarPanell() {
       this.irPanell;
@@ -85,7 +84,6 @@ export class HomeComponent implements OnInit {
       this.presupuestoService.calculoPpto(e);
   
    }
-
  
    modificarSpanTotal() {
       this.spanTotal = this.presupuestoService.arrayPpto[6].toString();
@@ -123,6 +121,8 @@ export class HomeComponent implements OnInit {
       return false;
 
    }
+
+
 
  
 
