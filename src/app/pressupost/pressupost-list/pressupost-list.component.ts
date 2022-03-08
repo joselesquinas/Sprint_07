@@ -15,24 +15,36 @@ export class PressupostListComponent implements OnInit {
 
    myForm: FormGroup = this.fb.group({ });
  
-
    constructor(   
       private dbpttoService: DbpttoService,
       private fb: FormBuilder) {}
 
-
-   ngOnInit(): void {}
-
-   //presupuestos: Presupuesto [] = [];
+   ngOnInit(): void {
+      this.getPttoRef();
+   }
  
    presupuestos: Presupuesto [] = [];
 
-
-   getPresupuestos() {
+   getPttoRef() {
         this.presupuestos  =  JSON.parse(this.dbpttoService.obtener_LocalStorage());
+
          console.log(this.presupuestos);
          
    }
+
+   getPttoCliente() {
+        this.presupuestos  =  JSON.parse(this.dbpttoService.obtener_LocalStorage());
+        
+         console.log(this.presupuestos);
+         
+   }
+   
+   getPttoDate() {
+      this.presupuestos  =  JSON.parse(this.dbpttoService.obtener_LocalStorage());
+      
+       console.log(this.presupuestos);
+       
+ }
 
 
    

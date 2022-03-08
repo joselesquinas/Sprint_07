@@ -1,6 +1,4 @@
-
 <div class="container">
-
 
   <div class="row">
     <div class="col">
@@ -9,43 +7,53 @@
         <div class="container row d-flex">
           <h3>Ordenar presupuestos por:</h3>
           <div class="col">
-            <button type="submit" class="btn btn-primary ">
-              Nombre
-            </button>
-          </div>
-          <div class="col">
-            <button type="submit" class="btn btn-primary ">
-              Fechas
-            </button>
-          </div>
-          <div class="col">
-            <button type="submit" class="btn btn-primary " (click)="getPresupuestos()" >
+            <button type="submit" 
+                     class="btn btn-primary"
+                     (click)="getPttoRef()" >
               Referencia
             </button>
           </div>
-
+          <div class="col">
+            <button type="submit" 
+            class="btn btn-primary "
+            (click)="getPttoCliente()">
+              Cliente
+            </button>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary " (click)="getPttoDate()">
+              Fechas
+            </button>
+          </div>
         </div>
       </form>
-
-
     </div>
   </div>
 
   <!--    listado de presupuestos -->
-      <div class="row">
-         <div class="col">
-            <br>
-            <p>Listado de presupuestos:</p>
-            <br>
-            <ul *ngFor="let presupuesto  of presupuestos; let i = index">   
-
-               <li  > 
-                        {{ i }} - {{ presupuesto.nomCli }} 
-               </li>
-
-            </ul>
-
-        </div>
-      </div>
+  <div class="row">
+    <div class="col">
+      <br>
+      <h5>Listado:</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>REF.</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let presupuesto  of presupuestos"> 
+            <td> {{ presupuesto.idPpto    }}   </td>
+            <td> {{ presupuesto.nomCli    }}   </td>
+            <td> {{ presupuesto.fecha     }}   </td>
+            <td> {{ presupuesto.totalPpto }} € </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 </div>

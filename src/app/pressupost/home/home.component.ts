@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit {
       let pTto = {
             idPpto: this.miFormulario.controls['nomPpto'].value,
             nomCli: this.miFormulario.controls['nomCliente'].value,
-            totalPpto: this.presupuestoService.arrayPpto[6].tostring,
+            totalPpto: this.spanTotal,
             fecha: date,   
          }
 
