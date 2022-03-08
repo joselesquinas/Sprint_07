@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PresupuestoService } from '../services/presupuesto.service';
@@ -11,7 +11,7 @@ import { DbpttoService } from '../services/dbptto.service';
    styleUrls: ['./home.component.sass']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
    miFormulario: FormGroup = this.fb.group({
       web: [false],
@@ -21,11 +21,24 @@ export class HomeComponent {
       nomCliente: [ , Validators.required],
    })
 
+   //data: string = '';
 
    constructor (
       private presupuestoService: PresupuestoService,
       private fb: FormBuilder,
       private dbpttoService: DbpttoService ) { }
+   
+   ngOnInit(): void {
+      this.presupuestoService.disparadorDeFavoritos.subscribe( data => {
+         console.log(data);
+         if ( data ) { 
+            this.modificarSpanTotal();
+         }
+      })
+   }
+
+
+
 
    spanTotal: string = '0';
 
@@ -53,7 +66,6 @@ export class HomeComponent {
                   this.presupuestoService.arrayPpto[2] = 1;
                   this.presupuestoService.arrayPpto[6] = 0; 
             }
-            
             break;
          }
          case "flexCheckSeo": {
@@ -61,7 +73,6 @@ export class HomeComponent {
                this.presupuestoService.arrayPpto[4] = 300;
 
             }  else { this.presupuestoService.arrayPpto[4] = 0; }
-           
             break;
          }
          case "flexCheckAds": {
@@ -69,20 +80,18 @@ export class HomeComponent {
                this.presupuestoService.arrayPpto[5] = 200;
 
             }  else { this.presupuestoService.arrayPpto[5] = 0; }
-         
             break;
          }
       };
 
       // llamada a función presupuesto
       this.presupuestoService.calculoPpto(e);
+  
    }
 
-   recibirCalculo() {
-      this.spanTotal = ( this.presupuestoService.arrayPpto[6]).toString();
-   }
+ 
    modificarSpanTotal() {
-      this.spanTotal = ( this.presupuestoService.arrayPpto[6]).toString();
+      this.spanTotal = this.presupuestoService.arrayPpto[6].toString();
    }
 
    campoEsValido(campo: string) {

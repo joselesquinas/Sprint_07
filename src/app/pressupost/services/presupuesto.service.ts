@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 
 import { Budget } from '../interfaces/budget';
-
 
 
 @Injectable({
@@ -27,8 +26,9 @@ export class PresupuestoService {
    // totalPpto: Budget[] = []
    arrayPpto = Object.values(this.plantillaPpto);
 
-   constructor() { };
+   @Output() disparadorDeFavoritos: EventEmitter<any> = new EventEmitter();
 
+   constructor() { };
 
    calculoPpto( evento: Event ) {
       const value = evento.currentTarget as HTMLInputElement;
@@ -53,7 +53,8 @@ export class PresupuestoService {
 
       console.log( this.arrayPpto );
 
-
    }
+
+
 
 }

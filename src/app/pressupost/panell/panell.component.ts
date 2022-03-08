@@ -37,8 +37,18 @@ export class PanellComponent {
    this.presupuestoService.arrayPpto[1] = Number(this.miFormulario.controls['paginas'].value);
    this.presupuestoService.arrayPpto[2] = Number(this.miFormulario.controls['idiomas'].value);   
    this.presupuestoService.calculoPpto( e );
+   
    }
 
+   //=========  mandar a service para home =================
+   dataEntrante: string = 'true';
+   agregarSpanTotal() {
+      console.log( this.dataEntrante )
+      this.presupuestoService.disparadorDeFavoritos.emit({
+         data: this.dataEntrante,
+      })
+   }
+   //========= /mandar a servicepara home =================
 
    //  openSM(contenido) {
    //     this.modal.open(contenido,{size:'sm'});

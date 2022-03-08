@@ -1,7 +1,7 @@
 
 <div class="row">
    <div class="col">
-      <form autocomplete="off" [formGroup] = "miFormulario">
+      <form autocomplete="off" [formGroup] = "miFormulario" >
          <div class="container row d-flex">
 
             <!-- Calculo del presupuesto -->
@@ -15,8 +15,9 @@
                         type="checkbox" 
                         formControlName="web" 
                         id="flexCheckWeb" 
-                        (change)="onCheckboxChange( $event )"
-                        (click)="mostrarPanell()">
+                        (change)="onCheckboxChange( $event );
+                                 modificarSpanTotal()"
+                        (click)="mostrarPanell()" >
                 <label class="form-check-label" for="flexCheckWeb">
                   Una página web (500 €)
                 </label>
@@ -31,7 +32,8 @@
                         type="checkbox" 
                         formControlName="seo" 
                         id="flexCheckSeo" 
-                        (change)="onCheckboxChange( $event )" >
+                        (change)="onCheckboxChange( $event );
+                        modificarSpanTotal()">
                    <label class="form-check-label" for="flexCheckSeo">
                       Una consultoria SEO (300 €)
                    </label>
@@ -43,7 +45,8 @@
                            type="checkbox"
                            formControlName="ads" 
                            id="flexCheckAds" 
-                           (change)="onCheckboxChange( $event )">
+                           (change)="onCheckboxChange( $event );
+                           modificarSpanTotal()">
                   <label class="form-check-label" for="flexCheckAds">
                      Una campanya de Google Ads (200 €)
                   </label>
@@ -59,18 +62,9 @@
               <div>
                 <p> <span> <strong>  Precio: {{spanTotal}} €  </strong></span> </p>
               </div>
-              <div class="row">
-               <div class="col">
-                 <button class="btn btn-primary float-end" 
-                         (click)="recibirCalculo()"
-                         >
-                   Calcular
-                 </button>
-               </div>
-             </div>
-              <br />
-              <br />
-              <hr><br />
+
+              <br/>
+              <hr>
           
             <!-- datos del Presupuesto -->
 
