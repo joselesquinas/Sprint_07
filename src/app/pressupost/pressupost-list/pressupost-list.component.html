@@ -19,7 +19,7 @@
             </button>
           </div>
           <div class="col">
-            <button type="submit" class="btn btn-primary " (click)="getPresupuestos()">
+            <button type="submit" class="btn btn-primary " (click)="getPresupuestos()" >
               Referencia
             </button>
           </div>
@@ -34,12 +34,16 @@
   <!--    listado de presupuestos -->
       <div class="row">
          <div class="col">
-         <p>Listado de presupuestos:</p>
-          <ul>
-               <li *ngfor="let presupuesto of presupuestos; let i = index"> 
-                  {{i +1}} - {{ presupuesto }}
+            <br>
+            <p>Listado de presupuestos:</p>
+            <br>
+            <ul *ngFor="let presupuesto  of presupuestos; let i = index">   
+
+               <li  > 
+                        {{ i }} - {{ presupuesto.nomCli }} 
                </li>
-          </ul>
+
+            </ul>
 
         </div>
       </div>

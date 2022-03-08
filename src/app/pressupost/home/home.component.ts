@@ -37,9 +37,6 @@ export class HomeComponent implements OnInit {
       })
    }
 
-
-
-
    spanTotal: string = '0';
 
    // mostrar template panell
