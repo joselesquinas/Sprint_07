@@ -32,8 +32,6 @@ export class DbpttoService {
        }
    }
 
-
-
    // var stringified = JSON.stringify(data);
    // var parsedObj = JSON.parse(stringified);
    //

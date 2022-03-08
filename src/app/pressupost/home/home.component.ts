@@ -109,14 +109,14 @@ export class HomeComponent implements OnInit {
       let f = new Date();
       let date:string =(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
-      let pTto = {
+      let Ptto = {
             idPpto: this.miFormulario.controls['nomPpto'].value,
             nomCli: this.miFormulario.controls['nomCliente'].value,
             totalPpto: this.spanTotal,
             fecha: date,   
          }
 
-      this.dbpttoService.grabar_LocalStorage( 'Presupuestos', pTto );
+      this.dbpttoService.grabar_LocalStorage( 'Presupuestos', Ptto );
 
       this.miFormulario.reset();
       this.spanTotal = '0';
