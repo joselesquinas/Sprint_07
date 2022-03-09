@@ -51,10 +51,8 @@ export class PresupuestoService {
 
       this.arrayPpto[6] = this.precioTotal; 
 
-      console.log( this.arrayPpto );
+      //console.log( this.arrayPpto );
 
    }
-
-
 
 }

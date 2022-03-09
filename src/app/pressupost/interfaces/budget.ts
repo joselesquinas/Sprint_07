@@ -15,6 +15,7 @@ export interface Presupuesto {
    nomCli: string;
    totalPpto: string;
    fecha: string;
+   fechaIso: Date;
 }
 
 

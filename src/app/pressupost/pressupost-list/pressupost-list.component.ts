@@ -56,12 +56,18 @@ export class PressupostListComponent implements OnInit {
    }
 
    getPttoDate() {
-      this.presupuestos  =  JSON.parse(this.dbpttoService.obtener_LocalStorage());
+      this.presupuestos  = JSON.parse(this.dbpttoService.obtener_LocalStorage());
       this.presupuestos.sort(function (a, b) {
-         return new Date(a.fecha).getTime() - new Date(b.fecha).getTime(); 
-      });
-      console.log(this.presupuestos);
-       
+         if (a.fechaIso < b.fechaIso) {
+            return 1;
+         }
+         if (a.fechaIso > b.fechaIso) {
+            return -1;
+         }
+         // a igual b
+         return 0;
+         });
+      //console.log(this.presupuestos);
    }
  
 }
